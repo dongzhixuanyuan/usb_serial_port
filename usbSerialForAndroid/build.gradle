@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 28
+        consumerProguardFiles 'proguard-rules.pro'
+        
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments = [                    // Raspi   Windows   LinuxVM   ...
+                'rfc2217_server_host': '192.168.0.100',
+                'rfc2217_server_nonstandard_baudrates': 'true',   // true    false     false
+        ]
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'commons-net:commons-net:3.6'
+    androidTestImplementation 'org.apache.commons:commons-lang3:3.8.1'
+}
+
+//apply from: 'publishToMavenLocal.gradle'
+
+//apply from: 'coverage.gradle'
