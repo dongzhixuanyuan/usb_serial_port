@@ -42,6 +42,8 @@ public class UserPortCommuManager implements SerialInputOutputManager.Listener {
 
     private Context context;
     private boolean isOpen;
+
+    public String vendor; //设备vendor，用来作为目标串口的标识ID
     private  SerialInputOutputManager usbIoManager;
     private UsbSerialPort mPort;
     private BroadcastReceiver broadcastReceiver;
@@ -57,8 +59,9 @@ public class UserPortCommuManager implements SerialInputOutputManager.Listener {
     }
 
     private int bauteRadio = 0 ;
-    private UserPortCommuManager(Context context) {
+    private UserPortCommuManager(Context context, final String vendor) {
         this.context = context;
+        this.vendor = vendor;
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -72,9 +75,9 @@ public class UserPortCommuManager implements SerialInputOutputManager.Listener {
         this.context.registerReceiver(broadcastReceiver, new IntentFilter(INTENT_ACTION_GRANT_USB));
     }
 
-    public static synchronized UserPortCommuManager getInstance(Context context) {
+    public static synchronized UserPortCommuManager getInstance(Context context,String vendor) {
         if (instance == null) {
-            instance = new UserPortCommuManager(context);
+            instance = new UserPortCommuManager(context,vendor);
         }
         return instance;
     }
@@ -99,7 +102,19 @@ public class UserPortCommuManager implements SerialInputOutputManager.Listener {
             }
 
             // Open a connection to the first available driver.
-            UsbSerialDriver driver = availableDrivers.get(0);
+            UsbSerialDriver driver = null;
+            for (int i = 0; i < availableDrivers.size(); i++) {
+                UsbSerialDriver usbSerialDriver = availableDrivers.get(i);
+                int vendorId = usbSerialDriver.getDevice().getVendorId();
+                String vendorStr = String.format("%04X", vendorId);
+                if (vendorStr.equals(vendor)) {
+                    driver = usbSerialDriver;
+                }
+            }
+            if (driver == null) {
+                Log.e(TAG,"未找到指定设备");
+                return false;
+            }
             UsbDeviceConnection connection = manager.openDevice(driver.getDevice());
             if(connection == null && usbPermission == UsbPermission.Unknown && !manager.hasPermission(driver.getDevice())) {
                 usbPermission = UsbPermission.Requested;
@@ -177,6 +192,11 @@ public class UserPortCommuManager implements SerialInputOutputManager.Listener {
             listener.onError(e);
         }
     }
+
+    public void setVendor(String vendor) {
+        this.vendor = vendor;
+    }
+
 }
 
 
