@@ -25,6 +25,10 @@ android {
     lintOptions {
         abortOnError false
     }
+    buildFeatures {
+        buildConfig = true
+    }
+    namespace 'com.hoho.android.usbserial.examples'
 }
 
 dependencies {

@@ -2,18 +2,22 @@
 
 buildscript {
     repositories {
-        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            allowInsecureProtocol = true
+        }
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.2'
+        classpath 'com.android.tools.build:gradle:8.0.2'
     }
 }
 
 allprojects {
     repositories {
-        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            allowInsecureProtocol = true
+        }
         jcenter()
         google()
     }

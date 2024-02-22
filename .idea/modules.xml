@@ -4,7 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/usb-serial-for-android.iml" filepath="$PROJECT_DIR$/.idea/modules/usb-serial-for-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.main.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialExamples/usb-serial-for-android.usbSerialExamples.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.main.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/usbSerialForAndroid/usb-serial-for-android.usbSerialForAndroid.unitTest.iml" />
     </modules>
   </component>
 </project>
